@@ -11,16 +11,23 @@
 # | Last update..: March 20th, 2025
 # | WhatIs.......: Trayectory - Main
 # +----------------------------------------------------------------------------+
-
-# ------------ Authors -------------
-# Vanessa Reteguín
-# Martín Isaí Núñez
-# Paola Osorio
-# Alexis Zúñiga
-
+# | Major........: Intelligent Computing Engineering - 4th Semester
+# | Subject......: Mechanics
+# | Professor....: Edgar Saucedo Casas
+# +----------------------------------------------------------------------------+
+# | Acknowledgements: Thanks to my team and friends.
+# |                   If you've taught me anything, it's that true learning 
+# |                   comes from curiosity, a genuine desire to improve, and 
+# |                   the exchange of ideas.
+# | The following people have contributed in the creation of this amazing code:
+# | - Martín Isaí Núñez [https://github.com/tzisai]: Math logic
+# | - Pablo Pérez López [https://github.com/HopedCastle1823]: Manim consultant
+# | - Alexis Zúñiga [https://github.com/coding-cluster]: Math logic and jokes
+# | - Paola Osorio [https://github.com/Paola110]: Team management
+# +----------------------------------------------------------------------------+
 
 # ------------ Resources / Documentation involved -------------
-# Manim Community https://docs.manim.community/en/stable/
+# Manim Community Docs: https://docs.manim.community/en/stable/
 
 # ------------------------- Libraries -------------------------
 from manim import *
@@ -36,7 +43,6 @@ scaleFactor = 0.5 # Resize to fit in plane
 # -------------------------- Classes --------------------------
 class Trayectory(MovingCameraScene):
     def construct(self):
-        # Create axes with adjusted y-range
         axes = Axes(
             x_range=[-6, 6, 1],  # X-axis range
             y_range=[-4, 4, 1],  # Y-axis range
@@ -81,7 +87,7 @@ class Trayectory(MovingCameraScene):
         
         self.add(redCircle, blueCircle, redCircle_dot, blueCircle_dot, greenCircle_dot, initialLabels)
         
-        # Zoom de la cámara
+        # Camera zoom
         self.camera.frame.scale(1)
         
         # Point's Strokes
@@ -90,6 +96,7 @@ class Trayectory(MovingCameraScene):
         blueCircle_dot_trace = TracedPath(blueCircle_dot.get_center, stroke_color=BLUE, stroke_width=3)
         self.add(redCircle_dot_trace, greenCircle_dot_trace, blueCircle_dot_trace,)
         
+        # Show starting points
         self.wait(5)
 
         # Center point between the circles for tracking
@@ -134,31 +141,31 @@ class Trayectory(MovingCameraScene):
             # Calculate the current angle (clockwise)
             angle = self.renderer.time * rotation_speed
             
-            # Small circle point (clockwise)
+            # Red circle point (clockwise)
             redCircle_dot.move_to([
                 redCenter[0] + (redRadius*scaleFactor) * np.sin(angle),
-                redCenter[1] - (redRadius*scaleFactor) * np.cos(angle),  # The negative sign here ensures clockwise rotation
+                redCenter[1] - (redRadius*scaleFactor) * np.cos(angle),  # Negative sign = clockwise rotation
                 0
             ])
             
-            # Point of the great circle (clockwise)
+            # Blue circle point (clockwise)
             blueCircle_dot.move_to([
                 blueCenter[0] + (blueRadius*scaleFactor) * np.sin(angle),
-                blueCenter[1] - (blueRadius*scaleFactor) * np.cos(angle),  # Changed to - for clockwise
+                blueCenter[1] - (blueRadius*scaleFactor) * np.cos(angle),  # - for clockwise
                 0
             ])
             
-            # Point of the great circle (clockwise)
+            # Green circle point (clockwise)
             greenCircle_dot.move_to([
                 greenCenter[0] + (greenRadius*scaleFactor) * np.sin(angle),
-                greenCenter[1] - (greenRadius*scaleFactor) * np.cos(angle),  # Changed to - for clockwise
+                greenCenter[1] - (greenRadius*scaleFactor) * np.cos(angle),  # - for clockwise
                 0
             ])
             
             # Update camera position to follow circles
             self.camera.frame.move_to(center_point)
         
-        # We remove the initial tags after a brief moment
+        # Remove the initial tags after a brief moment
         self.play(FadeOut(initialLabels), run_time=2)
         
         # Add updater
