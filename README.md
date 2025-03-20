@@ -4,7 +4,6 @@ Three-point animation of a simple cycloid with python Manim library
 
 ## 🎯 Objective
 
-Create a GUI that shows a movie schedule using a CSV as a movie database. It allows the user to "purchase tickets" based on the seat availability shown in a CSV.
 
 ### Working project demo
 
