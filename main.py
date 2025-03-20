@@ -1,3 +1,17 @@
+# +----------------------------------------------------------------------------+
+# | CARDUI WORKS v1.0.0
+# +----------------------------------------------------------------------------+
+# | Copyright (c) 2024 - 2025, CARDUI.COM (www.cardui.com)
+# | Vanessa Reteguín <vanessa@reteguin.com>
+# | Released under the MIT license
+# | www.cardui.com/carduiframework/license/license.txt
+# +----------------------------------------------------------------------------+
+# | Author.......: Vanessa Reteguín <vanessa@reteguin.com>
+# | First release: March 18th, 2025
+# | Last update..: March 20th, 2025
+# | WhatIs.......: Trayectory - Main
+# +----------------------------------------------------------------------------+
+
 # ------------ Authors -------------
 # Vanessa Reteguín
 # Martín Isaí Núñez
