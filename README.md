@@ -1,4 +1,4 @@
-# **🌀Three Point Motion Circular Coil**
+# **🌀Cycloid**
 
 Three-point animation of a simple cycloid with python Manim library
 
